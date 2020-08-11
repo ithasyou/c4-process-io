@@ -32,3 +32,35 @@ El proceso busca los nombres de tabla mediante expresión regular en el fichero 
 * Las lecturas se harán en este proceso y no fuera de él. 
 * Los nombres de las tablas serán en mayúsculas y empezarán con `TABLENAME_`
 * Las relaciones entre el nombre de la constante y el nombre de la tabla la busca en el fichero `share/tags` o `share/constants`.
+
+
+## Otros Scripts incluidos
+
+* **closemvnversion.sh**
+Se encarga de cerrar la versión actual y generar una nueva versión del repositorio.
+Se ejecuta en el repositorio y recibe como parámetro la versión actual y siguiente
+`closemvnversion.sh 1.0.0 1.0.1`
+
+* **deploy-to-desa.sh**
+Ejecuta el comando `mvn install` y copia los paquetes al servidor de desarrollo.
+
+* **install.sh**
+Para ejecutar dentro de la máquina de desarrollo `ld6mk02`. Se copia dentro de la carpeta con el mismo nombre que el repositorio, busca el paquete en la raíz y lo instala.
+
+* **deploy.sh**
+Auxiliar, para ejecutar dentro de la máquina de desarrollo `ld6mk02`. Necesario para el script `install.sh`.
+
+* **sshdesa.sh**
+Se conecta vía ssh a DESA.
+
+* **mvnversion.sh**
+Actualiza la versión del repositorio actual mediante comandos de maven
+
+* **pydeploy.sh**
+* Para ejecutar dentro de la máquina de desarrollo `ld6mk02`, desde el directorio raíz. Recibe como parámetro el nombre del repositorio y se encarga de instalarlo.
+
+* **pydeploy-to-desa.sh**
+* Ejecuta el comando `gradlew build` y copia los paquetes al servidor de desarrollo.
+
+
+

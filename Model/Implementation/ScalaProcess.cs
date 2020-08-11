@@ -21,16 +21,16 @@ namespace AproIO.Model.Implementation
 
         private string _findEntitiesFolder(DirectoryInfo path)
         {
-            if (path.GetDirectories().Any())
+            if (path.GetFiles("entities.scala").Any())
+            {
+                return path.FullName;
+            }
+            else if (path.GetDirectories().Any())
             {
                 return path.GetDirectories()
                     .Select(t => _findEntitiesFolder(t))
                     .Where(t => t != null)
                     .FirstOrDefault();
-            }
-            else if (path.GetFiles("entities.scala").Any())
-            {
-                return path.FullName;
             }
             else
             {
